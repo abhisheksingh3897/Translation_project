@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Translate Text</title>
+</head>
+<body>	
+<form method="POST">
+	 <label for="inlang">Input lang:</label><br>
+	 <select name="inlang" id="inlang">
+		<option value="en">English</option>
+		<option value="ar">ar (العربية)</option>
+		<option value="de">de (Deutsch)</option>
+		<option value="fr">fr (Français)</option>
+		<option value="hi">hi (हिंदी)</option>
+		<option value="pt">pt (Português)</option>
+		<option value="ru">ru (Русский)</option>
+	 </select><br>
+
+	 <label for="data">Text to Translate:</label><br>
+	 <input type="text" id="data" name="data"><br>
+
+	 <label for="lang"> Language:</label><br>
+	 <select name="lang" id="lang">
+		<option value="en">English</option>
+		<option value="ar">ar (العربية)</option>
+		<option value="de">de (Deutsch)</option>
+		<option value="fr">fr (Français)</option>
+		<option value="hi">hi (हिंदी)</option>
+		<option value="pt">pt (Português)</option>
+		<option value="ru">ru (Русский)</option>
+	 </select><br>
+	 <input type="submit">
+</form>
+<br>
+<%=data%>
+<br>
+<%=output%>
+</body>
+</html>
