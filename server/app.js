@@ -3,7 +3,7 @@ var express = require('express'),
 	translate = require('../translationAPI/googleTranslate'),
 	redis = require('redis'),
 	translateTemp = require('@k3rn31p4nic/google-translate-api'),
-	cacheServer = require('../cacheServer/hashmapServer/hashmapServer.js');
+	cacheServer = require('../cacheServer/hashmapServer/hashmapServer');
 
 var map= cacheServer.start();
 var client = redis.createClient(6379);
@@ -24,7 +24,7 @@ app.post('/translate', function (req, res) {
 	var outlang = req.body.lang;
 	var inlang = req.body.inlang;
 	var output = cacheServer.get(data + outlang, map);
-	setTimeout(() => {}, 200);
+	//setTimeout(() => {}, 200);
 	if (!(output === undefined)) {
 		return res.status(200).send({ data: output, cacheUsed: true });
 	} else {
@@ -35,7 +35,7 @@ app.post('/translate', function (req, res) {
 
 app.post('/translateAPI', function (req, res) {
 	var data = req.body.data;
-	data = data.trim();
+	data = data.trim().toLowerCase();
 	var outlang = req.body.lang;
 	var inlang = req.body.inlang;
 	var output;
